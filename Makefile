@@ -84,8 +84,6 @@ agents-skills-install: agents-skills-check-npx
 	@$(SKILLS) add dapi/tgcli --skill tgcli -g $(AGENTS_SKILLS_AGENT_FLAGS) -y
 	@echo "  📥 Installing playwright-cli from microsoft/playwright-cli"
 	@$(SKILLS) add microsoft/playwright-cli --skill playwright-cli -g $(AGENTS_SKILLS_AGENT_FLAGS) -y
-	@echo "  📥 Installing fpf-simple from CodeAlive-AI/fpf-simple-skill"
-	@$(SKILLS) add CodeAlive-AI/fpf-simple-skill --skill fpf-simple -g $(AGENTS_SKILLS_AGENT_FLAGS) -y
 	@echo "  📥 Installing prompt-engeneering from CodeAlive-AI/prompt-engineering-skill"
 	@$(SKILLS) add CodeAlive-AI/prompt-engineering-skill@prompt-engeneering -g -y
 	@for skill in $(GOOGLE_WORKSPACE_SKILLS); do \
@@ -97,7 +95,6 @@ agents-skills-list:
 	@echo "$(BLUE)📋 Curated skills:$(NC)"
 	@printf "  tgcli (dapi/tgcli)\n"
 	@printf "  playwright-cli (microsoft/playwright-cli)\n"
-	@printf "  fpf-simple (CodeAlive-AI/fpf-simple-skill)\n"
 	@printf "  prompt-engeneering (CodeAlive-AI/prompt-engineering-skill)\n"
 	@for skill in $(GOOGLE_WORKSPACE_SKILLS); do \
 		printf "  %s (googleworkspace/cli)\n" "$$skill"; \
@@ -105,10 +102,9 @@ agents-skills-list:
 
 # --- Claude Code plugins ---
 
-CLAUDE_PLUGINS_MARKETPLACES = lackeyjb/playwright-skill dapi/claude-code-marketplace
+CLAUDE_PLUGINS_MARKETPLACES = dapi/claude-code-marketplace
 
 CLAUDE_PLUGINS = \
-	playwright-skill@playwright-skill \
 	himalaya@dapi \
 	pr-review-fix-loop@dapi \
 	spec-reviewer@dapi \
