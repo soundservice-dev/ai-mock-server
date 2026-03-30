@@ -1,1 +1,25 @@
 .obsidian/
+
+# Rails
+/log/*
+/tmp/*
+/storage/*
+/db/*.sqlite3
+/db/*.sqlite3-*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Keys and credentials
+/config/master.key
+/config/credentials/*.key
+/config/*.key
+
+# Assets
+/public/assets/
+/node_modules/
+
+# OS
+.DS_Store

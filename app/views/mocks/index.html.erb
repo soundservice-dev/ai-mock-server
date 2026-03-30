@@ -1,0 +1,32 @@
+<h1>Mocks</h1>
+
+<p><%= link_to "New Mock", new_mock_path %></p>
+
+<% if @mocks.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>URL</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @mocks.each do |mock| %>
+        <tr>
+          <td><code><%= mock.request_method %></code></td>
+          <td><code><%= mock.request_url %></code></td>
+          <td><%= mock.response_status %></td>
+          <td>
+            <%= link_to "Show", mock %>
+            <%= link_to "Edit", edit_mock_path(mock) %>
+            <%= link_to "Delete", mock, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No mocks yet.</p>
+<% end %>

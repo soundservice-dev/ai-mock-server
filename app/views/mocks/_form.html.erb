@@ -1,0 +1,59 @@
+<%= form_with(model: mock) do |form| %>
+  <% if mock.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(mock.errors.count, "error") %> prohibited this mock from being saved:</h2>
+      <ul>
+        <% mock.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Request</legend>
+
+    <div>
+      <%= form.label :request_url, "URL" %>
+      <%= form.text_field :request_url, required: true, placeholder: "/api/v1/users" %>
+    </div>
+
+    <div>
+      <%= form.label :request_method, "HTTP Method" %>
+      <%= form.select :request_method, %w[GET POST PUT PATCH DELETE HEAD OPTIONS], {} %>
+    </div>
+
+    <div>
+      <%= form.label :request_headers, "Headers (optional, one per line: Header: Value)" %>
+      <%= form.text_area :request_headers, rows: 3 %>
+    </div>
+
+    <div>
+      <%= form.label :request_body, "Body (optional)" %>
+      <%= form.text_area :request_body, rows: 4 %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Response</legend>
+
+    <div>
+      <%= form.label :response_status, "Status Code" %>
+      <%= form.number_field :response_status, required: true %>
+    </div>
+
+    <div>
+      <%= form.label :response_headers, "Headers (optional, one per line: Header: Value)" %>
+      <%= form.text_area :response_headers, rows: 3, placeholder: "Content-Type: application/json" %>
+    </div>
+
+    <div>
+      <%= form.label :response_body, "Body (optional)" %>
+      <%= form.text_area :response_body, rows: 6 %>
+    </div>
+  </fieldset>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+get_users:
+  request_url: /api/v1/users
+  request_method: GET
+  response_status: 200
+  response_headers: "Content-Type: application/json"
+  response_body: '[{"id":1,"name":"John"}]'
+
+post_users:
+  request_url: /api/v1/users
+  request_method: POST
+  request_headers: "Content-Type: application/json"
+  request_body: '{"name":"Jane"}'
+  response_status: 201
+  response_headers: "Content-Type: application/json"
+  response_body: '{"id":2,"name":"Jane"}'

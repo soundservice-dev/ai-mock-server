@@ -1,0 +1,42 @@
+<h1>Mock: <%= @mock.request_method %> <%= @mock.request_url %></h1>
+
+<h2>Request</h2>
+<dl>
+  <dt>URL</dt>
+  <dd><code><%= @mock.request_url %></code></dd>
+
+  <dt>Method</dt>
+  <dd><code><%= @mock.request_method %></code></dd>
+
+  <% if @mock.request_headers.present? %>
+    <dt>Headers</dt>
+    <dd><pre><%= @mock.request_headers %></pre></dd>
+  <% end %>
+
+  <% if @mock.request_body.present? %>
+    <dt>Body</dt>
+    <dd><pre><%= @mock.request_body %></pre></dd>
+  <% end %>
+</dl>
+
+<h2>Response</h2>
+<dl>
+  <dt>Status</dt>
+  <dd><%= @mock.response_status %></dd>
+
+  <% if @mock.response_headers.present? %>
+    <dt>Headers</dt>
+    <dd><pre><%= @mock.response_headers %></pre></dd>
+  <% end %>
+
+  <% if @mock.response_body.present? %>
+    <dt>Body</dt>
+    <dd><pre><%= @mock.response_body %></pre></dd>
+  <% end %>
+</dl>
+
+<p>
+  <%= link_to "Edit", edit_mock_path(@mock) %> |
+  <%= link_to "Back", mocks_path %> |
+  <%= link_to "Delete", @mock, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+</p>
