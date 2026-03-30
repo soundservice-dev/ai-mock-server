@@ -2,7 +2,7 @@ See PROJECT.md for project description.
 
 ## Stack
 
-- Ruby 3.4.8, Rails 7 (MVC)
+- Ruby 3.4.8, Rails 8
 - SQLite
 - Minitest
 - Rubocop (standard)
